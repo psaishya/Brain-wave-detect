@@ -6,6 +6,10 @@ from sklearn.model_selection import train_test_split
 import tensorflow as tf
 from tensorflow import keras
 from keras.utils import normalize
+from keras.models import Sequential
+from keras.layers import Conv2D, MaxPooling2D
+from keras.layers import Activation, Dropout,Flatten,Dense
+
 
 
 image_folder="datasets/"
@@ -60,6 +64,49 @@ print(y_train.shape)
 #normalization
 x_train=normalize(x_train,axis=1)
 x_test=normalize(x_test,axis=1)
+
+
+#building the model
+model=Sequential()
+
+#adding a convolution layer with 32 filters, (3,3) is size of each filter
+#here, input_shape=(INPUT_SIZE,INPUT_SIZE,3) specifies that height and width is INPUT_SIZE and 3 color channels(RGB)
+
+model.add(Conv2D(32,(3,3),input_shape=(image_size,image_size,3)))
+model.add(Activation(('relu'))) #rectified linear unit
+model.add(MaxPooling2D(pool_size=(2,2))) #reduce by factor of 2
+
+model.add(Conv2D(32,(3,3),kernel_initializer="he_uniform"))
+model.add(Activation(('relu'))) #rectified linear unit
+model.add(MaxPooling2D(pool_size=(2,2))) #reduce by factor of 2
+
+model.add(Conv2D(64,(3,3),input_shape=(image_size,image_size,3)))
+model.add(Activation(('relu'))) #rectified linear unit
+model.add(MaxPooling2D(pool_size=(2,2))) #reduce by factor of 2
+
+model.add(Flatten()) #flatten 3d output into 1d vector
+
+model.add(Dense(64)) #first fully connected layer with 64 neurons
+model.add(Activation('relu')) 
+
+model.add(Dropout(0.5)) #to avoid overfit
+
+# model.add(Dense(1))#another fully connected layer
+model.add(Dense(2))
+
+# model.add(Activation('sigmoid')) #for binary classification
+model.add(Activation('softmax'))
+
+#model.compile(loss='binary_crossentropy',optimizer='adam',metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
+model.fit(x_train,y_train,
+          batch_size=16,
+          verbose=1,
+          epochs=10,
+          validation_data=(x_test,y_test),
+          shuffle=False)
+# model.save("Braintumor10epochs_binarycrossentropy.h5")
+model.save("Braintumor10epochs_categoricalcrossentropy.h5")
 
 
 
