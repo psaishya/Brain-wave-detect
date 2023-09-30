@@ -5,7 +5,7 @@ from streamlit_option_menu import option_menu
 
 
 
-st.set_page_config(page_title="Brain Wave", page_icon=":brain: ", layout="wide")
+st.set_page_config(page_title="Brain Wave", page_icon=":brain:", layout="wide")
 
 
 def load_lottiefile(filepath: str):
@@ -42,7 +42,7 @@ with st.container():
         st.write("""
         -Upload your MRI images and let the app identify potential tumors.
    \n Tumor Type Classification:
-       Dsiscover the type of brain tumor detected, aiding in early diagnosis and treatment planning."""
+       Discover the type of brain tumor detected, aiding in early diagnosis and treatment planning."""
                  )
     with right_column:
         st.lottie(
