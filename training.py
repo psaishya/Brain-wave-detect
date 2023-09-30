@@ -17,7 +17,11 @@ image_folder = "datasets/"
 no_tumorimages = os.listdir(image_folder + "no_tumor/")
 # print(no_tumorimages)
 
-tumorimages = os.listdir(image_folder + "tumor/")
+glioma_tumorimages = os.listdir(image_folder + "glioma_tumor/")
+pituitary_tumorimages = os.listdir(image_folder + "pituitary_tumor/")
+meningioma_tumorimages = os.listdir(image_folder + "meningioma_tumor/")
+
+
 # print(tumorimages)
 
 dataset = []
@@ -30,6 +34,8 @@ for index, filename in enumerate(no_tumorimages):
     # usiing jpg files only
     if (filename.split(".")[1]) == "jpg":
         image = cv2.imread(image_folder + "no_tumor/" + filename)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
         image = Image.fromarray(image, "RGB")
         # print(image)
         image = image.resize(
@@ -39,19 +45,57 @@ for index, filename in enumerate(no_tumorimages):
         dataset.append(np.array(image))
         label.append(0)
 
-for index, filename in enumerate(tumorimages):
+for index, filename in enumerate(glioma_tumorimages):
     # print(index,filename)
     # usiing jpg files only
     if (filename.split(".")[1]) == "jpg":
-        image = cv2.imread(image_folder + "tumor/" + filename)
-        image = Image.fromarray(image, "RGB")
-        # print(image)
-        image = image.resize(
-            (image_size, image_size)
-        )  # resizing all the images to size 64 x 64
-        # print(image)
-        dataset.append(np.array(image))
-        label.append(1)
+        image = cv2.imread(image_folder + "glioma_tumor/" + filename)
+        if image is not None:
+
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+            image = Image.fromarray(image, "RGB")
+            # print(image)
+            image = image.resize(
+                (image_size, image_size)
+            )  # resizing all the images to size 64 x 64
+            # print(image)
+            dataset.append(np.array(image))
+            label.append(1)
+for index, filename in enumerate(pituitary_tumorimages):
+    # print(index,filename)
+    # usiing jpg files only
+    if (filename.split(".")[1]) == "jpg":
+        image = cv2.imread(image_folder + "pituitary_tumor/" + filename)
+        if image is not None:
+
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+            image = Image.fromarray(image, "RGB")
+            # print(image)
+            image = image.resize(
+                (image_size, image_size)
+            )  # resizing all the images to size 64 x 64
+            # print(image)
+            dataset.append(np.array(image))
+            label.append(1)
+for index, filename in enumerate(meningioma_tumorimages):
+    # print(index,filename)
+    # usiing jpg files only
+    if (filename.split(".")[1]) == "jpg":
+        image = cv2.imread(image_folder + "meningioma_tumor/" + filename)
+        if image is not None:
+
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+            image = Image.fromarray(image, "RGB")
+            # print(image)
+            image = image.resize(
+                (image_size, image_size)
+            )  # resizing all the images to size 64 x 64
+            # print(image)
+            dataset.append(np.array(image))
+            label.append(1)
 # print(dataset)
 # print(label)
 print(len(dataset))
@@ -76,8 +120,8 @@ x_train = normalize(x_train, axis=1)
 x_test = normalize(x_test, axis=1)
 
 # for categorical cross entropy , modifying y_train and y_test
-y_train = to_categorical(y_train, num_classes=2)
-y_test = to_categorical(y_test, num_classes=2)
+# y_train = to_categorical(y_train, num_classes=2)
+# y_test = to_categorical(y_test, num_classes=2)
 
 # building the model
 model = Sequential()
@@ -104,14 +148,14 @@ model.add(Activation("relu"))
 
 model.add(Dropout(0.5))  # to avoid overfit
 
-# model.add(Dense(1))#another fully connected layer
-model.add(Dense(2))
+model.add(Dense(1))#another fully connected layer
+# model.add(Dense(2))
 
-# model.add(Activation('sigmoid')) #for binary classification
-model.add(Activation("softmax"))
+model.add(Activation('sigmoid')) #for binary classification
+# model.add(Activation("softmax"))
 
-# model.compile(loss='binary_crossentropy',optimizer='adam',metrics=['accuracy'])
-model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
+model.compile(loss='binary_crossentropy',optimizer='adam',metrics=['accuracy'])
+# model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 
 # fitting the model by providing datasets
 model.fit(
@@ -125,7 +169,7 @@ model.fit(
 )
 
 # saving binary cross entropy model
-# model.save("Braintumor10epochs_binarycrossentropy.h5")
+model.save("Braintumor10epochs_binarycrossentropy.h5")
 
 # saving categorical cross entropy model
-model.save("Braintumor10epochs_categoricalcrossentropy.h5")
+# model.save("Braintumor10epochs_categoricalcrossentropy.h5")

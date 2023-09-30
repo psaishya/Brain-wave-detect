@@ -42,14 +42,8 @@ with st.container():
         )
 
         st.header("Features:")
-<<<<<<< HEAD
-        st.write(
-            """
-        -Upload your MRI images and let the app identify potential tumors.
-=======
         st.write("""
         - Upload your MRI images and let the app identify potential tumors.
->>>>>>> 104b997e347b9cbd91591720dabcf24d75bca32c
    \n Tumor Type Classification:
        Discover the type of brain tumor detected, aiding in early diagnosis and treatment planning."""
         )
@@ -64,8 +58,6 @@ with st.container():
             width=None,
             key=None,
         )
-<<<<<<< HEAD
-=======
 with st.container():
     st.write("---")
     footer = """
@@ -75,7 +67,7 @@ with st.container():
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                background-color: #f8f9fa;
+                background-color: purple;
                 text-align: center;
                 padding: 10px;
             }
@@ -88,4 +80,3 @@ with st.container():
         </div>
     """
     st.markdown(footer, unsafe_allow_html=True)
->>>>>>> 104b997e347b9cbd91591720dabcf24d75bca32c
