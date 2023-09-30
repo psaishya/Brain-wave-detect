@@ -3,6 +3,7 @@ import requests
 from PIL import Image
 import numpy as np
 from keras.models import load_model
+import time
 
 # Set page title and icon
 st.set_page_config(page_title="Brain Tumor Detection", page_icon=":brain:")
@@ -61,11 +62,18 @@ if uploaded_file is not None:
         img = np.array(img.resize((64, 64)))  # Resize image as needed
         img = np.expand_dims(img, axis=0)
         img = np.expand_dims(img, axis=-1)
+        bar=st.progress(0)
         result1 = model1.predict(img)
         result2 = model2.predict(img)
+
       
         # Display the result
         if result1 == 1 and result2[0][0] == 0.0:
+            #loading bar
+            for i in range(10):
+                bar.progress((i+1)*10)
             st.warning("Tumor detected!")
         else:
+            for i in range(10):
+                bar.progress((i+1)*10)
             st.success("No tumor detected!")
