@@ -184,7 +184,7 @@ with st.container():
               reverse=False,
               loop=True,
               quality="high",
-              height=None,
-              width=None,
+              height=1024,
+              width=1024,
               key=None,
               )
