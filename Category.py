@@ -150,7 +150,7 @@ model.fit(train_dataset,
           callbacks=[early_stopping, lr_sch],
           shuffle=False)
 
-model.save('Category_classification.h5')
+model.save('Category_classification1.h5')
 
 # model3=load_model('Category_classification.h5')
 
