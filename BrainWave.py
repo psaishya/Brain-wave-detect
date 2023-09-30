@@ -4,7 +4,6 @@ import json
 from streamlit_option_menu import option_menu
 
 
-
 st.set_page_config(page_title="Brain Wave", page_icon=":brain:", layout="wide")
 
 
@@ -33,14 +32,14 @@ with st.container():
         st.write("###")
         st.write(
             """
-          -Our app leverages artificial intelligence and deep learning to analyze MRI images of the brain and detect potential tumors.
+          - Our app leverages artificial intelligence and deep learning to analyze MRI images of the brain and detect potential tumors.
         \nTechnologies:
-          \n-We use TensorFlow and OpenCV, leading technologies in AI and image processing, to power the analysis."""
+          \n- We use TensorFlow and OpenCV, leading technologies in AI and image processing, to power the analysis."""
         )
 
         st.header("Features:")
         st.write("""
-        -Upload your MRI images and let the app identify potential tumors.
+        - Upload your MRI images and let the app identify potential tumors.
    \n Tumor Type Classification:
        Discover the type of brain tumor detected, aiding in early diagnosis and treatment planning."""
                  )
@@ -55,3 +54,25 @@ with st.container():
             width=None,
             key=None,
         )
+with st.container():
+    st.write("---")
+    footer = """
+        <style>
+            .footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: #f8f9fa;
+                text-align: center;
+                padding: 10px;
+            }
+        </style>
+        <div class="footer">
+            <p>Follow Brain-Wave Detect for awesome brain health tips: &nbsp;&nbsp;&nbsp; 
+            <img src="https://i.ibb.co/GkTspCK/twitter.png" alt="twitter" width=32 height=32>&nbsp; &nbsp;            
+            <img src="https://i.ibb.co/BTv56bd/facebook.png" alt="facebook" width=32 height=32>
+            </p>
+        </div>
+    """
+    st.markdown(footer, unsafe_allow_html=True)

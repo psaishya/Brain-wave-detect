@@ -14,7 +14,7 @@ def load_lottiefile(filepath: str):
 
 
 # ---------- loading assets ---------
-lottie_animation = load_lottiefile("animation4.json")
+lottie_animation = load_lottiefile("animation5.json")
 
 # ---------defining resoursce for css-------
 
