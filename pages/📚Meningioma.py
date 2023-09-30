@@ -14,7 +14,7 @@ def load_lottiefile(filepath: str):
 
 
 # ---------Loading asset---------
-lottie_animation = load_lottiefile("animation5.json")
+lottie_animation = load_lottiefile("animation2.json")
 
 # -----defining resource for css----------
 
@@ -50,5 +50,15 @@ with st.container():
                  - Radiatio Therapy
                  """)
 
-st.write(
-    "[What to expect on surgery? :right:](https://www.youtube.com/watch?v=7H6vLuELqeQ)")
+        st.write(
+            "[What to expect on surgery? :right:](https://www.youtube.com/watch?v=7H6vLuELqeQ)")
+    with right_column:
+        st.lottie(lottie_animation,
+                  speed=1.5,
+                  reverse=False,
+                  loop=True,
+                  quality="high",
+                  height=None,
+                  width=None,
+                  key=None,
+                  )

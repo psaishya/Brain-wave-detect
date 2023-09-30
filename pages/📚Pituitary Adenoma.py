@@ -15,7 +15,7 @@ def load_lottiefile(filepath: str):
 
 
 # Load lottie animation
-lottie_animation = load_lottiefile("animation5.json")
+lottie_animation = load_lottiefile("animation2.json")
 
 # Define CSS styling
 
@@ -29,14 +29,26 @@ local_css("styles/style.css")
 
 # Header and basic information
 with st.container():
-    st.subheader("Pituitary Adenoma :brain:")
-    st.write(
-        """
-        - A pituitary adenoma is a benign (noncancerous) growth on your pituitary gland.
-        - Unlike cancer, it doesn’t spread to other parts of your body.
-        - As pituitary adenomas grow, they can put pressure on nearby structures and cause symptoms.
-        """
-    )
+    left_column , right_column= st.columns(2)
+    with left_column:
+        st.subheader("Pituitary Adenoma :brain:")
+        st.write(
+            """
+            - A pituitary adenoma is a benign (noncancerous) growth on your pituitary gland.
+            - Unlike cancer, it doesn’t spread to other parts of your body.
+            - As pituitary adenomas grow, they can put pressure on nearby structures and cause symptoms.
+            """
+        )
+    with right_column:
+        st.lottie(lottie_animation,
+              speed=1.5,
+              reverse=False,
+              loop=True,
+              quality="high",
+              height=250,
+              width= 250,
+              key=None,
+              )
 
 # Description of the Pituitary Gland
 with st.container():

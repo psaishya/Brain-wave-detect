@@ -14,7 +14,7 @@ def load_lottiefile(filepath: str):
 
 
 # ---------Loading asset---------
-lottie_animation = load_lottiefile("animation5.json")
+lottie_animation = load_lottiefile("animation2.json")
 
 # -----defining resource for css----------
 
@@ -41,7 +41,7 @@ with st.container():
                 - Glioma is a common type of brain tumor arising from glial cells that support neurons in the brain.\n
                 - Represents about 33% of all brain tumors and grows within the brain substance.\n
 """)
-        st.title("Types of Gliomas:")
+        st.title("Types of Gliomas: \n")
         st.write("""
                 - Astrocytomas: Most common glioma, originating from astrocytes; high-grade astrocytomas are highly malignant.\n
                 - Brain Stem Gliomas: Rare tumors in the brain stem, difficult to remove surgically, often in children.\n
@@ -62,10 +62,20 @@ with st.container():
                  """)
         st.title("Glioma Diagnosis and Treatment:")
         st.write("""
-                - Diagnosis involves medical history, physical and neurological exams, brain scans, and biopsy. \n
+                - Diagnosis involves medical history, physical and neurological exams, brain scans, and biopsy.\n
                 - Treatment customized based on tumor grade, including surgery, radiation therapy, chemotherapy, or observation.\n
                 - Surgery is often the first line, followed by adjuvant treatments like radiation and chemotherapy.\n
                 - Monitoring post-treatment with brain scans to check for tumor growth and recurrence; further surgeries may be recommended.\n
                  """)
-st.write(
-    "[What to expect on surgery? :right:](https://www.youtube.com/watch?v=7H6vLuELqeQ)")
+    st.write(
+        "[What to expect on surgery? :right:](https://www.youtube.com/watch?v=7H6vLuELqeQ)")
+    with right_column:
+        st.lottie(lottie_animation,
+                  speed=1.5,
+                  reverse=False,
+                  loop=True,
+                  quality="high",
+                  height=None,
+                  width=None,
+                  key=None,
+                  )
