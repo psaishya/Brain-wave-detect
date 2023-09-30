@@ -27,11 +27,6 @@ def local_css(file_name):
 local_css("styles/style.css")
 
 
-def load_lottiefile(filepath: str):
-    with open(filepath, "r") as f:
-        return json.load(f)
-
-
 with st.container():
     st.subheader("Brain Wave Detect :brain:")
     st.title("Empowering Early Diagnosis, Improving Lives")

@@ -14,6 +14,7 @@ st.set_page_config(page_title="Brain Tumor Detection", page_icon=":brain:")
 st.title(":brain: Brain Tumor Detection App ")
 st.subheader("Upload an MRI scan to begin analysis :mag:")
 
+
 def load_lottiefile(filepath: str):
     with open(filepath, "r") as f:
         return json.load(f)
@@ -25,7 +26,7 @@ with st.container():
 
     with left_column:
         # Define CSS styles
-# Define CSS styles
+        # Define CSS styles
 
         page_bg = """
         <style>
@@ -54,7 +55,6 @@ with st.container():
         </style>
         """
 
-
         st.markdown(title_style, unsafe_allow_html=True)
 
         # Title and Description with title icon
@@ -64,7 +64,8 @@ with st.container():
         # st.write("Upload an MRI image to test for the presence of a brain tumor.")
 
         # File Upload
-        uploaded_file = st.file_uploader("Choose an MRI image...", type=["jpg"])
+        uploaded_file = st.file_uploader(
+            "Choose an MRI image...", type=["jpg"])
 
         model1 = load_model("Braintumor10epochs_binarycrossentropy.h5")
         model2 = load_model("Braintumor10epochs_categoricalcrossentropy.h5")
@@ -91,7 +92,6 @@ with st.container():
                 score=tf.nn.softmax(result3[0])
                 category=(classnames[np.argmax(score)])
 
-            
                 # Display the result
                 if category!='No tumor':
                     for i in range(10):
