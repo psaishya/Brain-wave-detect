@@ -17,7 +17,7 @@ def load_lottiefile(filepath: str):
 
 
 # loading assets
-lottie_animation = load_lottiefile("animation2.json")
+lottie_animation = load_lottiefile("animation3.json")
 with st.container():
     st.write("---")
     left_column, right_column = st.columns(2)
