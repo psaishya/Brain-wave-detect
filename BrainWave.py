@@ -42,7 +42,7 @@ with st.container():
         st.write("""
         -Upload your MRI images and let the app identify potential tumors.
    \n Tumor Type Classification:
-       Dsiscover the type of brain tumor detected, aiding in early diagnosis and treatment planning."""
+       Discover the type of brain tumor detected, aiding in early diagnosis and treatment planning."""
                  )
     with right_column:
         st.lottie(
