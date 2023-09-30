@@ -42,7 +42,7 @@ with st.container():
                 - Represents about 33% of all brain tumors and grows within the brain substance.\n
 """)
         st.title("Types of Gliomas: \n")
-        st.write(""""
+        st.write("""
                 - Astrocytomas: Most common glioma, originating from astrocytes; high-grade astrocytomas are highly malignant.\n
                 - Brain Stem Gliomas: Rare tumors in the brain stem, difficult to remove surgically, often in children.\n
                 - Ependymomas: Develop from ependymal cells, rare but common in children, affecting cerebellum.\n
