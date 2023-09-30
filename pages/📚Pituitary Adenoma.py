@@ -29,9 +29,9 @@ local_css("styles/style.css")
 
 # Header and basic information
 with st.container():
-    left_column , right_column= st.columns(2)
+    left_column, right_column = st.columns(2)
     with left_column:
-        st.subheader("Pituitary Adenoma :brain:")
+        st.title("Pituitary Adenoma :brain:")
         st.write(
             """
             - A pituitary adenoma is a benign (noncancerous) growth on your pituitary gland.
@@ -41,14 +41,14 @@ with st.container():
         )
     with right_column:
         st.lottie(lottie_animation,
-              speed=1.5,
-              reverse=False,
-              loop=True,
-              quality="high",
-              height=250,
-              width= 250,
-              key=None,
-              )
+                  speed=1.5,
+                  reverse=False,
+                  loop=True,
+                  quality="high",
+                  height=250,
+                  width=250,
+                  key=None,
+                  )
 
 # Description of the Pituitary Gland
 with st.container():
@@ -188,4 +188,6 @@ with st.container():
 with st.container():
     st.write("---")
     st.write(
-        "[More about Pituitary Adenoma :arrow_right:](https://www.ncbi.nlm.nih.gov/books/NBK554451/")
+        ":point_right:[More about Pituitary Adenoma](https://www.ncbi.nlm.nih.gov/books/NBK554451/)")
+    st.write(
+        ":point_right:[What to expect on surgery?](https://www.youtube.com/watch?v=7H6vLuELqeQ)")

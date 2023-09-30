@@ -27,7 +27,7 @@ def local_css(file_name):
 local_css("styles/style.css")
 
 with st.container():
-    st.subheader("Glioma :brain:")
+    st.title("Glioma :brain:")
     st.title("")
 
 
@@ -36,8 +36,8 @@ with st.container():
     st.write("---")
     left_column, right_column = st.columns(2)
     with left_column:
+        st.title("What is Glioma?")
         st.write("""
-                  What is a Glioma?\n
                 - Glioma is a common type of brain tumor arising from glial cells that support neurons in the brain.\n
                 - Represents about 33% of all brain tumors and grows within the brain substance.\n
 """)
@@ -68,7 +68,7 @@ with st.container():
                 - Monitoring post-treatment with brain scans to check for tumor growth and recurrence; further surgeries may be recommended.\n
                  """)
     st.write(
-        "[What to expect on surgery? :right:](https://www.youtube.com/watch?v=7H6vLuELqeQ)")
+        ":point_right:[What to expect on surgery?](https://www.youtube.com/watch?v=7H6vLuELqeQ)")
     with right_column:
         st.lottie(lottie_animation,
                   speed=1.5,

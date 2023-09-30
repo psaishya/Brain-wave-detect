@@ -27,7 +27,7 @@ def local_css(file_name):
 local_css("styles/style.css")
 
 with st.container():
-    st.subheader("Meningioma :brain:")
+    st.title("Meningioma :brain:")
     st.title("")
 
 
@@ -43,22 +43,24 @@ with st.container():
         - almost all meningiomas can be considered benign but some meningiomas can be persistent and come back after treatment \n
 
 """)
-        st.title("Recommendation: \n")
-        st.write(""""
+        st.subheader("Recommendation:")
+        st.write("""
                  
                  - Surgery
-                 - Radiatio Therapy
+                 - Radiation Therapy
                  """)
 
         st.write(
-            "[What to expect on surgery? :right:](https://www.youtube.com/watch?v=7H6vLuELqeQ)")
-    with right_column:
-        st.lottie(lottie_animation,
-                  speed=1.5,
-                  reverse=False,
-                  loop=True,
-                  quality="high",
-                  height=None,
-                  width=None,
-                  key=None,
-                  )
+            ":point_right:[What to expect on surgery?](https://www.youtube.com/watch?v=7H6vLuELqeQ)")
+        st.write(
+            ":point_right:[More about Meningioma](https://www.cancer.gov/rare-brain-spine-tumor/tumors/meningioma)")
+        with right_column:
+            st.lottie(lottie_animation,
+                      speed=1.5,
+                      reverse=False,
+                      loop=True,
+                      quality="high",
+                      height=None,
+                      width=None,
+                      key=None,
+                      )
