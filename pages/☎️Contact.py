@@ -4,8 +4,19 @@ import json
 from streamlit_option_menu import option_menu
 
 
-st.set_page_config(page_title="Contact",
-                   page_icon=":phone: ", layout="wide")
+st.set_page_config(page_title="Contact", page_icon=":phone: ", layout="wide")
+
+
+# ---------defining resoursce for animation json file-------
+def load_lottiefile(filepath: str):
+    with open(filepath, "r") as f:
+        return json.load(f)
+
+
+# ---------- loading assets ---------
+lottie_animation = load_lottiefile("animation4.json")
+
+# ---------defining resoursce for css-------
 
 
 def local_css(file_name):
@@ -50,5 +61,13 @@ left_column, right_column = st.columns(2)
 with left_column:
     st.markdown(contact_info, unsafe_allow_html=True)
 with right_column:
-    st.empty()
-
+    st.lottie(
+        lottie_animation,
+        speed=1,
+        reverse=True,
+        loop=True,
+        quality="high",
+        height=None,
+        width=None,
+        key=None,
+    )
